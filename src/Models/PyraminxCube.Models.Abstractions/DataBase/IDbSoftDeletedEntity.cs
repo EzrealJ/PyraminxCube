@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PyraminxCube.Models.Abstractions.DataBase
 {
-    public interface IDbTableEntity : IDbEntity
+    public interface IDbSoftDeletedEntity
     {
+        bool IsDeleted { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PyraminxCube.Models.Abstractions.DataBase
 {
-    public interface IDBViewEntity : IDbEntity
+    public interface IDbViewEntity : IDbEntity
     {
     }
 }

@@ -9,6 +9,6 @@ namespace PyraminxCube.Models.Abstractions
     public interface IIdentityEntity<TIdentity>:IEntity<TIdentity>
          where TIdentity : notnull
     {
-        public TIdentity Id { get; }
+        public TIdentity Id { get; set; }
     }
 }

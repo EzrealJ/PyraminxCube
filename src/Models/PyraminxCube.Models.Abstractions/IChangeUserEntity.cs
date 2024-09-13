@@ -8,9 +8,9 @@ namespace PyraminxCube.Models.Abstractions
 {
     public interface IChangeUserEntity<TUserId, TChangeTime>
     {
-        public TUserId CreateUserId { get; }
-        public TChangeTime CreateTime { get; }
-        public TUserId ModifyUserId { get; }
-        public TChangeTime ModifyTime { get; }
+        public TUserId CreateUserId { get; set; }
+        public TChangeTime CreateTime { get; set; }
+        public TUserId ModifyUserId { get; set; }
+        public TChangeTime ModifyTime { get; set; }
     }
 }

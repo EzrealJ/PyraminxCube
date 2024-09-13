@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace PyraminxCube.Models.Abstractions.DataBase
 {
-    public abstract class DBTableEntity : DbEntity, IDBTableEntity
+    public abstract class DbTableEntity : DbEntity, IDbTableEntity
     {
 
     }
-    public abstract class DBTableEntity<TKey> : DbEntity<TKey>, IDbEntity<TKey>
+    public abstract class DbTableEntity<TKey> : DbEntity<TKey>, IDbEntity<TKey>
        where TKey : notnull
     {
 

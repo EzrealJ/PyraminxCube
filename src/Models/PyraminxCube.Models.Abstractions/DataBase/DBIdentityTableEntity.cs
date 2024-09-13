@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PyraminxCube.Models.Abstractions.DataBase
 {
-    public class DBIdentityTableEntity<TIdentity> : DBTableEntity<TIdentity>, IIdentityEntity<TIdentity>
+    public class DbIdentityTableEntity<TIdentity> : DbTableEntity<TIdentity>, IIdentityEntity<TIdentity>
         where TIdentity : notnull
     {
-        public DBIdentityTableEntity()
+        public DbIdentityTableEntity()
         {
             Id = default!;
         }
