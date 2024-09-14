@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PyraminxCube.Models.Abstractions.DataBase
 {
-    public interface IDbViewEntity : IDbEntity
+    public abstract class DbViewEntity : DbEntity, IDbViewEntity
     {
 
     }
