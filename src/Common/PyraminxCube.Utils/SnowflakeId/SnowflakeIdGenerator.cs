@@ -23,6 +23,7 @@ namespace PyraminxCube.Utils.SnowflakeId
 
         private readonly object _lock = new();
         private long _lastTimestamp = -1L;
+        private long _sequence = 0L;
         /// <summary>
         /// 
         /// </summary>
@@ -31,10 +32,7 @@ namespace PyraminxCube.Utils.SnowflakeId
         /// 
         /// </summary>
         public long DatacenterId { get; } = settings.DataCenterId;
-        /// <summary>
-        /// 序列号
-        /// </summary>
-        public long Sequence { get; internal set; } = 0L;
+
 
         /// <summary>
         /// 生成下一个Id
@@ -44,56 +42,47 @@ namespace PyraminxCube.Utils.SnowflakeId
         /// <exception cref="Exception"></exception>
         public long NextId()
         {
-            // sanity check for workerId
-            if (WorkerId > MAX_WORKER_ID || WorkerId < 0)
+            long timestamp = TimeGen();
+
+            if (timestamp < _lastTimestamp)
             {
-                throw new ArgumentException($"worker Id can't be greater than {MAX_WORKER_ID} or less than 0");
+                // Handle clock moving backwards
+                throw new Exception($"Clock moved backwards. Refusing to generate id for {_lastTimestamp - timestamp} milliseconds");
             }
 
-            if (DatacenterId > MAX_DATACENTER_ID || DatacenterId < 0)
+            if (_lastTimestamp == timestamp)
             {
-                throw new ArgumentException($"datacenter Id can't be greater than {MAX_DATACENTER_ID} or less than 0");
+                // Same millisecond; increment sequence using Interlocked
+                _sequence = Interlocked.Increment(ref _sequence) & SEQUENCE_MASK;
+                if (_sequence == 0)
+                {
+                    // Sequence exhausted; wait until next millisecond
+                    timestamp = TilNextMillis(_lastTimestamp);
+                }
+            }
+            else
+            {
+                // New millisecond; reset sequence
+                _sequence = 0;
             }
 
-            lock (_lock)
-            {
-                long timestamp = TimeGen();
+            _lastTimestamp = timestamp;
 
-                if (timestamp < _lastTimestamp)
-                {
-                    throw new Exception($"InvalidSystemClock: Clock moved backwards, Refusing to generate id for {_lastTimestamp - timestamp} milliseconds");
-                }
+            long id = ((timestamp - TWEPOCH) << TIMESTAMP_LEFT_SHIFT) |
+                      (DatacenterId << DATACENTER_ID_SHIFT) |
+                      (WorkerId << WORKER_ID_SHIFT) |
+                      _sequence;
 
-                if (_lastTimestamp == timestamp)
-                {
-                    Sequence = (Sequence + 1) & SEQUENCE_MASK;
-                    if (Sequence == 0)
-                    {
-                        timestamp = TilNextMillis(_lastTimestamp);
-                    }
-                }
-                else
-                {
-                    Sequence = 0;
-                }
-
-                _lastTimestamp = timestamp;
-                long id = ((timestamp - TWEPOCH) << TIMESTAMP_LEFT_SHIFT) |
-                         (DatacenterId << DATACENTER_ID_SHIFT) |
-                         (WorkerId << WORKER_ID_SHIFT) | Sequence;
-
-                return id;
-            }
+            return id;
         }
 
         private static long TilNextMillis(long lastTimestamp)
         {
-            long timestamp = TimeGen();
-            while (timestamp <= lastTimestamp)
+            long timestamp;
+            do
             {
                 timestamp = TimeGen();
-            }
-
+            } while (timestamp <= lastTimestamp);
             return timestamp;
         }
 
