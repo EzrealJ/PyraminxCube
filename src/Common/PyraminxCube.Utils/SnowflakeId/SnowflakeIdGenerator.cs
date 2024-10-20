@@ -8,7 +8,13 @@ namespace PyraminxCube.Utils.SnowflakeId
 {
     public class SnowflakeIdGenerator(ISnowflakeIdSettings settings)
     {
-        public const long TWEPOCH = 1288834974657L;
+        // 获取2024年的utc时间  
+        private static readonly DateTime _utc2024 = new(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        // 获取1970年的utc时间
+        private static readonly DateTime _utc1970 = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+        public static readonly long Epoch = (long)(_utc2024 - _utc1970).TotalMilliseconds;
+        
 
         private const int WORKER_ID_BITS = 5;
         private const int DATACENTER_ID_BITS = 5;
@@ -21,7 +27,6 @@ namespace PyraminxCube.Utils.SnowflakeId
         public const int TIMESTAMP_LEFT_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS + DATACENTER_ID_BITS;
         private const long SEQUENCE_MASK = -1L ^ (-1L << SEQUENCE_BITS);
 
-        private readonly object _lock = new();
         private long _lastTimestamp = -1L;
         private long _sequence = 0L;
         /// <summary>
@@ -68,7 +73,7 @@ namespace PyraminxCube.Utils.SnowflakeId
 
             _lastTimestamp = timestamp;
 
-            long id = ((timestamp - TWEPOCH) << TIMESTAMP_LEFT_SHIFT) |
+            long id = ((timestamp - Epoch) << TIMESTAMP_LEFT_SHIFT) |
                       (DatacenterId << DATACENTER_ID_SHIFT) |
                       (WorkerId << WORKER_ID_SHIFT) |
                       _sequence;
