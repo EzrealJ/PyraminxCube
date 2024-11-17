@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PyraminxCube.Extensions.Core
 {
-    internal class ArgumentCheck
+    public static class ArgumentCheck
     {
     }
 }

@@ -9,10 +9,7 @@ namespace PyraminxCube.Models.Abstractions.DataBase
     public class DbIdentityTableEntity<TIdentity> : DbTableEntity<TIdentity>, IIdentityEntity<TIdentity>
         where TIdentity : notnull
     {
-        public DbIdentityTableEntity()
-        {
-            Id = default!;
-        }
+        public DbIdentityTableEntity() => Id = default!;
 
         /// <summary>
         /// Id

@@ -1,0 +1,33 @@
+<Solution>
+  <Folder Name="/Applications/" />
+  <Folder Name="/Cache/">
+    <Project Path="Cache\PyraminxCube.Cache.Abstractions\PyraminxCube.Cache.Abstractions.csproj" />
+    <Project Path="Cache\PyraminxCube.Cache.Redis\PyraminxCube.Cache.Redis.csproj" />
+    <Project Path="I:\Github\PyraminxCube\src\Cache\PyraminxCube.Cache.Abstractions\PyraminxCube.Cache.Abstractions.csproj" />
+    <Project Path="I:\Github\PyraminxCube\src\Cache\PyraminxCube.Cache.Redis\PyraminxCube.Cache.Redis.csproj" />
+  </Folder>
+  <Folder Name="/Common/">
+    <Project Path="Common\PyraminxCube.Utils\PyraminxCube.Utils.csproj" />
+    <Project Path="I:\Github\PyraminxCube\src\Common\PyraminxCube.Utils\PyraminxCube.Utils.csproj" />
+  </Folder>
+  <Folder Name="/Extensions/">
+    <Project Path="Extensions\PyraminxCube.Extensions.Core\PyraminxCube.Extensions.Core.csproj" />
+    <Project Path="I:\Github\PyraminxCube\src\Extensions\PyraminxCube.Extensions.Core\PyraminxCube.Extensions.Core.csproj" />
+  </Folder>
+  <Folder Name="/Models/">
+    <Project Path="Models\PyraminxCube.Models.Abstractions\PyraminxCube.Models.Abstractions.csproj" />
+    <Project Path="I:\Github\PyraminxCube\src\Models\PyraminxCube.Models.Abstractions\PyraminxCube.Models.Abstractions.csproj" />
+  </Folder>
+  <Folder Name="/Repositories/">
+    <Project Path="Repositories\PyraminxCube.Repositories.DbContext.EFCore\PyraminxCube.Repositories.DbContext.EFCore.csproj" />
+    <Project Path="Repositories\PyraminxCube.Repositories.DbContext\PyraminxCube.Repositories.DbContext.csproj" />
+    <Project Path="I:\Github\PyraminxCube\src\Repositories\PyraminxCube.Repositories.DbContext.EFCore\PyraminxCube.Repositories.DbContext.EFCore.csproj" />
+    <Project Path="I:\Github\PyraminxCube\src\Repositories\PyraminxCube.Repositories.DbContext\PyraminxCube.Repositories.DbContext.csproj" />
+  </Folder>
+  <Properties Name="Visual Studio">
+    <Property Name="OpenWith" Value="17" />
+  </Properties>
+  <Folder Name="/Project/">
+    <File Path="Project\project.props" />
+  </Folder>
+</Solution>

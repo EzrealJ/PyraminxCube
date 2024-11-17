@@ -12,10 +12,7 @@ namespace PyraminxCube.Cache.Redis
     /// </summary>
     public class RedisOptions
     {
-        public RedisOptions()
-        {
-            ConfigurationOptions = new();
-        }
+        public RedisOptions() => ConfigurationOptions = new();
 
         /// <summary>
         /// The configuration used to connect to Redis.

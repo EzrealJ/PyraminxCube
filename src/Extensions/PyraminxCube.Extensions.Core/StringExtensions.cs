@@ -39,6 +39,9 @@ namespace PyraminxCube.Extensions.Core
         public static bool IsNullOrWhiteSpace(this string? value) => string.IsNullOrWhiteSpace(value);
         /// <summary>
         /// 字符串不为【null或空白字符串】
+        /// <para>
+        /// <see cref="string.IsNullOrWhiteSpace(string?)"/>的否定
+        /// </para>
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
