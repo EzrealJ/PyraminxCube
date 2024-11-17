@@ -250,7 +250,7 @@ namespace PyraminxCube.Cache.Redis
 
         #region TryLock Sync
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <param name="token">锁定令牌，必须确保唯一性</param>
         /// <param name="timeout">锁定过期时长</param>
@@ -279,7 +279,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <param name="token">锁定令牌，必须确保唯一性</param>
@@ -311,7 +311,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -344,7 +344,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -379,7 +379,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -416,7 +416,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TResult">返回结果类型</typeparam>
         /// <param name="token">锁定令牌，必须确保唯一性</param>
@@ -446,7 +446,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TResult">返回结果类型</typeparam>
@@ -478,7 +478,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -512,7 +512,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -548,7 +548,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -803,7 +803,7 @@ namespace PyraminxCube.Cache.Redis
 
         #region TryLock ASync
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <param name="token">锁定令牌，必须确保唯一性</param>
         /// <param name="timeout">锁定过期时长</param>
@@ -835,7 +835,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <param name="token">锁定令牌，必须确保唯一性</param>
@@ -869,7 +869,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -905,7 +905,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -945,7 +945,7 @@ namespace PyraminxCube.Cache.Redis
 
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -985,7 +985,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TResult">返回结果类型</typeparam>
         /// <param name="token">锁定令牌，必须确保唯一性</param>
@@ -1018,7 +1018,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TResult">返回结果类型</typeparam>
@@ -1053,7 +1053,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -1090,7 +1090,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
@@ -1129,7 +1129,7 @@ namespace PyraminxCube.Cache.Redis
             }
         }
         /// <summary>
-        /// 尝试锁定(如果已经在执行，则调用错误处理)
+        /// 尝试锁定(若获取锁错误，则调用错误处理)
         /// </summary>
         /// <typeparam name="TArgs1">参数1类型</typeparam>
         /// <typeparam name="TArgs2">参数2类型</typeparam>
