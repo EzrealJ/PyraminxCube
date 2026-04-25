@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="../../Project/project.props" />
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\PyraminxCube.Rbac.Core\PyraminxCube.Rbac.Core.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -19,14 +19,11 @@ namespace PyraminxCube.Models.Abstractions.DataBase
             {
                 throw new ArgumentException("泛型TKey的default为null,且未指定默认值创建器");
             }
-            if (defaultKeyGetter == null)
+            if (defaultKeyGetter != null)
             {
-                return defaultKeyGetter!();
+                return defaultKeyGetter();
             }
-            else
-            {
-                return default!;
-            }
+            return default!;
         }
     }
 }
