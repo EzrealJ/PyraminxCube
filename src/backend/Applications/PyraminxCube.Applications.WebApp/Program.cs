@@ -1,3 +1,4 @@
+using PyraminxCube.Applications.WebApp.Middleware;
 using PyraminxCube.Rbac.AspNetCore.Extensions;
 using PyraminxCube.Rbac.EntityFrameworkCore.Extensions;
 using PyraminxCube.Rbac.EntityFrameworkCore;
@@ -26,6 +27,9 @@ builder.Services.AddRbacAspNetCore();
 // builder.Services.AddAuthorization();
 
 var app = builder.Build();
+
+// 全局异常处理
+app.UseExceptionHandling();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
