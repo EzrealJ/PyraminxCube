@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PyraminxCube.Rbac.Core.Abstractions;
+using PyraminxCube.Rbac.Core.Services;
 using PyraminxCube.Rbac.EntityFrameworkCore.Services;
 
 namespace PyraminxCube.Rbac.EntityFrameworkCore.Extensions
@@ -29,13 +30,7 @@ namespace PyraminxCube.Rbac.EntityFrameworkCore.Extensions
                 ConfigureDbContext(dbContextOptions, options);
             });
 
-            // 注册服务实现
-            services.AddScoped<IPermissionService, PermissionService>();
-            services.AddScoped<IDataScopeService, DataScopeService>();
-            services.AddScoped<IPermissionCache, PermissionCache>();
-
-            // 注册维度映射配置
-            services.AddSingleton<IDataDimensionMapping, DataDimensionMapping>();
+            RegisterServices(services);
 
             return services;
         }
@@ -47,15 +42,29 @@ namespace PyraminxCube.Rbac.EntityFrameworkCore.Extensions
         /// <returns>服务集合</returns>
         public static IServiceCollection AddRbacEntityFrameworkCore(this IServiceCollection services)
         {
-            // 注册服务实现
+            RegisterServices(services);
+            return services;
+        }
+
+        /// <summary>
+        /// 注册所有 RBAC 服务
+        /// </summary>
+        private static void RegisterServices(IServiceCollection services)
+        {
+            // 核心权限服务（用于权限校验）
             services.AddScoped<IPermissionService, PermissionService>();
             services.AddScoped<IDataScopeService, DataScopeService>();
             services.AddScoped<IPermissionCache, PermissionCache>();
 
+            // 业务管理服务（用于 CRUD 操作）
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IApiPermissionService, ApiPermissionService>();
+            services.AddScoped<IFeaturePermissionService, FeaturePermissionService>();
+            services.AddScoped<IDataDimensionService, DataDimensionService>();
+
             // 注册维度映射配置
             services.AddSingleton<IDataDimensionMapping, DataDimensionMapping>();
-
-            return services;
         }
 
         /// <summary>

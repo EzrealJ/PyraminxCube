@@ -6,7 +6,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\RBAC\PyraminxCube.Rbac.AspNetCore\PyraminxCube.Rbac.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\RBAC\PyraminxCube.Rbac.EntityFrameworkCore\PyraminxCube.Rbac.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
 </Project>
