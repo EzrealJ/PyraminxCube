@@ -1,5 +1,7 @@
 namespace PyraminxCube.Rbac.Core.Services
 {
+    using PyraminxCube.Rbac.Core.Models.Dto;
+
     /// <summary>
     /// API权限服务接口
     /// 提供API权限管理相关的业务功能（A-001 ~ A-010）

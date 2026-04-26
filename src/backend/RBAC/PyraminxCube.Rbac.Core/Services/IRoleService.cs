@@ -1,5 +1,7 @@
 namespace PyraminxCube.Rbac.Core.Services
 {
+    using PyraminxCube.Rbac.Core.Models.Dto;
+
     /// <summary>
     /// 角色服务接口
     /// 提供角色管理相关的业务功能（R-001 ~ R-009）
@@ -624,38 +626,6 @@ namespace PyraminxCube.Rbac.Core.Services
         /// 创建时间
         /// </summary>
         public DateTimeOffset CreatedTime { get; set; }
-    }
-
-    /// <summary>
-    /// 分页结果
-    /// </summary>
-    /// <typeparam name="T">数据类型</typeparam>
-    public class PagedResult<T>
-    {
-        /// <summary>
-        /// 数据列表
-        /// </summary>
-        public List<T> Items { get; set; } = [];
-
-        /// <summary>
-        /// 总记录数
-        /// </summary>
-        public long TotalCount { get; set; }
-
-        /// <summary>
-        /// 当前页码
-        /// </summary>
-        public int PageIndex { get; set; }
-
-        /// <summary>
-        /// 每页条数
-        /// </summary>
-        public int PageSize { get; set; }
-
-        /// <summary>
-        /// 总页数
-        /// </summary>
-        public int TotalPages => (int)Math.Ceiling(TotalCount / (double)PageSize);
     }
 
     #endregion
